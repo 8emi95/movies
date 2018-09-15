@@ -11,10 +11,4 @@ class Movie extends Model
     {
         return $this->hasMany(Item::class);
     }
-
-    // public function addItem(Item $id) // !!!
-    // public function addItem($id) // !!!
-    // {
-    //     $this->items()->update(compact('id'));
-    // }
 }
