@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
+use App\Show;
 
 class MovieController extends Controller
 {
@@ -19,6 +20,7 @@ class MovieController extends Controller
         ]);
 
         Movie::create(request(['title']));
+
         return redirect('/add-movie');
     }
 
@@ -28,17 +30,14 @@ class MovieController extends Controller
         return view('combine', compact('movies'));
     }
 
-    public function check(Request $request)
+    public function combineMovies(Request $request)
     {
         $this->validate(request(), [
             'first' => 'required|different:second',
             'second' => 'required'
         ]);
 
-        $id = \DB::table('shows')->insertGetId([
-            'movie1_id' => $request->get('first'),
-            'movie2_id' => $request->get('second')
-        ]);
+        Show::create(['movie1_id' => $request->get('first'), 'movie2_id' => $request->get('second')]);
 
         return redirect('/combine');
     }

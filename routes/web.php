@@ -30,8 +30,7 @@ Route::post('/assign', 'ItemController@assignToMovie');
 
 
 Route::get('/combine', 'MovieController@combine');
-Route::post('/combine', 'MovieController@check');
+Route::post('/combine', 'MovieController@combineMovies');
 
 
-
-Route::get('/shows', 'ItemController@shows');
+Route::get('/shows', 'ShowController@list');

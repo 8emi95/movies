@@ -12,29 +12,27 @@
     <tbody>
     @foreach ($shows as $show)
         <tr>
-            @foreach ($movies as $movie)
-            <td>{{ $movie->name }}</td>
-                @if ($movie->id == $show->movie1_id)
-                    <td>{{ $movie->name }}</td>
-                @elseif ($movie->id == $show->movie2_id)
-                    <td>{{ $movie->name }}</td>
-                @endif
-            @endforeach
+            <td>{{ $show->movie1->title }}</td>
+            <td>{{ $show->movie2->title }}</td>
         </tr>
         <tr>
             <td>
-            @foreach ($items as $item)
-                @if ($item->movie_id == $show->movie1_id)
-                    <li>{{ $item->name }}</li>
-                @endif
-            @endforeach
+                <ul style="list-style: none; padding-left: 0">
+                @foreach ($items as $item)
+                    @if ($item->movie_id == $show->movie1_id)
+                        <li>{{ $item->name }}</li>
+                    @endif
+                @endforeach
+            </ul>
             </td>
             <td>
-            @foreach ($items as $item)
-                @if ($item->movie_id == $show->movie2_id)
-                    <li>{{ $item->name }}</li>
-                @endif
-            @endforeach
+                <ul style="list-style: none; padding-left: 0">
+                @foreach ($items as $item)
+                    @if ($item->movie_id == $show->movie2_id)
+                        <li>{{ $item->name }}</li>
+                    @endif
+                @endforeach
+                </ul>
             </td>
         </tr>
     @endforeach

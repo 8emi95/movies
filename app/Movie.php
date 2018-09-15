@@ -15,14 +15,4 @@ class Movie extends Model
     {
         $this->items()->create(compact('id'));
     }
-
-    // public function parent()
-    // {
-    //     return $this->belongsTo('Movie', 'parent_id');
-    // }
-
-    // public function children()
-    // {
-    //     return $this->hasMany('Movie', 'parent_id');
-    // }
 }

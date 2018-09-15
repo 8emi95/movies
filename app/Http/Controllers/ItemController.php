@@ -8,9 +8,22 @@ use App\Movie;
 
 class ItemController extends Controller
 {
+
     public function add()
     {
         return view('add_item');
+    }
+
+    public function store()
+    {
+        $this->validate(request(), [
+            'name' => 'required',
+            'quantity' => 'required',
+            'price' => 'required'
+        ]);
+
+        Item::create(request(['name', 'quantity', 'price']));
+        return redirect('/add-item');
     }
 
     public function assign()
@@ -26,23 +39,4 @@ class ItemController extends Controller
         return back();
     }
 
-    public function store()
-    {
-        $this->validate(request(), [
-            'name' => 'required',
-            'quantity' => 'required',
-            'price' => 'required'
-        ]);
-
-        Item::create(request(['name', 'quantity', 'price']));
-        return redirect('/add-item');
-    }
-
-    public function shows()
-    {
-        $movies = Movie::all();
-        $items = Item::all();
-        $shows = \DB::table('shows')->get();
-        return view('shows', compact(['movies', 'items', 'shows']));
-    }
 }
