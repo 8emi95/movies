@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
-});
-Route::post('/login', 'Auth/LoginController@login');
+Route::get('/login', 'LoginController@create');
+Route::post('/login', 'LoginController@store');
+
+Route::get('/logout', 'LoginController@destroy');
+
+
+// Route::get('/login', 'Auth\LoginController@create');
+// Route::post('/login', 'Auth\LoginController@store');
+// Route::post('/logout', 'Auth\LoginController@destroy');
 
 
 Route::get('/add-movie', 'MovieController@add');
@@ -26,6 +31,7 @@ Route::post('/add-item', 'ItemController@store');
 
 
 Route::get('/assign', 'ItemController@assign');
+// Route::post('/assign', 'MovieController@assign');
 Route::post('/assign', 'ItemController@assignToMovie');
 
 
@@ -34,3 +40,6 @@ Route::post('/combine', 'MovieController@combineMovies');
 
 
 Route::get('/shows', 'ShowController@list');
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

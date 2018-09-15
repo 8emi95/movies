@@ -3,6 +3,7 @@
 namespace App;
 
 // use Illuminate\Database\Eloquent\Model;
+use App\Item;
 
 class Movie extends Model
 {
@@ -11,8 +12,9 @@ class Movie extends Model
         return $this->hasMany(Item::class);
     }
 
-    public function addItem($id) // !!!
-    {
-        $this->items()->create(compact('id'));
-    }
+    // public function addItem(Item $id) // !!!
+    // public function addItem($id) // !!!
+    // {
+    //     $this->items()->update(compact('id'));
+    // }
 }

@@ -3,7 +3,7 @@
 
 @section ('content')
 
-<form>
+<form method="post">
 @csrf
 
     <div class="form-group">
