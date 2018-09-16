@@ -50,4 +50,13 @@ class ItemController extends Controller
         return back();
     }
 
+    public function assignToMovieAjax(Request $request)
+    {
+        $movie_id = $request->get('movie_id');
+        $item_id = $request->get('item_id');
+
+        Item::whereId($item_id)->update(['movie_id' => $movie_id]);
+
+        return response(200);
+    }
 }

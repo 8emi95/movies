@@ -26,7 +26,8 @@ Route::post('/add-item', 'ItemController@store');
 
 
 Route::get('/assign', 'ItemController@assign');
-Route::post('/assign', 'ItemController@assignToMovie');
+// Route::post('/assign', 'ItemController@assignToMovie');
+Route::post('/assign', 'ItemController@assignToMovieAjax');
 
 
 Route::get('/combine', 'MovieController@combine');

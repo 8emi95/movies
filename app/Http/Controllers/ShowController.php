@@ -21,5 +21,4 @@ class ShowController extends Controller
         $shows = Show::all();
         return view('shows', compact(['movies', 'items', 'shows']));
     }
-
 }
